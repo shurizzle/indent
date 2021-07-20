@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: GNU indent 2.2.12\n"
 "Report-Msgid-Bugs-To: bug-indent@gnu.org\n"
 "POT-Creation-Date: 2018-09-01 17:48+0200\n"
-"PO-Revision-Date: 2016-03-04 15:26+0000\n"
-"Last-Translator: Olexandr Nesterenko <olexn@ukr.net>\n"
+"PO-Revision-Date: 2021-07-21 19:35+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/indent/"
 "translations/uk/>\n"
 "Language: uk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 #: src/args.c:673
 msgid ""
@@ -72,8 +72,8 @@ msgstr "Профіль містить неприпустимі символи"
 #, c-format
 msgid "File named by environment variable %s does not exist or is not readable"
 msgstr ""
-"Файла, визначеного змінною середовища %s, не існує або цей файл непридатний "
-"до читання"
+"Файла, визначеного змінною середовища %s, не існує або цей файл не "
+"читабельний"
 
 #: src/backup.c:463
 #, c-format
@@ -108,7 +108,7 @@ msgstr "Не вдається змінити дату зміни файла ре
 #: src/globs.c:46 src/globs.c:68
 #, c-format
 msgid "indent: Virtual memory exhausted.\n"
-msgstr "indent: Скінчилась віртуальна пам'ять\n"
+msgstr "indent: Вичерпано віртуальну пам'ять\n"
 
 #: src/globs.c:103
 #, c-format
