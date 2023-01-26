@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indent 2.2.8\n"
 "Report-Msgid-Bugs-To: bug-indent@gnu.org\n"
-"POT-Creation-Date: 2018-09-01 17:48+0200\n"
+"POT-Creation-Date: 2023-01-26 10:49+0100\n"
 "PO-Revision-Date: 2019-08-19 05:18+0000\n"
 "Last-Translator: Matei Copoț <copotmatei@gmail.com>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -222,15 +222,15 @@ msgstr "Eroare la închiderea fişierului de intrare %s"
 msgid "File %s contains NULL-characters: cannot proceed\n"
 msgstr "Fişierul %s conţine caractere NULL: nu puteți continua\n"
 
-#: src/lexi.c:834
+#: src/lexi.c:852
 msgid "Unterminated character constant"
 msgstr "Constantă caracter neterminată"
 
-#: src/lexi.c:835 src/lexi.c:854
+#: src/lexi.c:853 src/lexi.c:872
 msgid "Unterminated string constant"
 msgstr "Constantă şir neterminată"
 
-#: src/lexi.c:1113
+#: src/lexi.c:1131
 #, fuzzy, c-format
 msgid "old style assignment ambiguity in \"=%s\". Assuming \"= %s\"\n"
 msgstr "atribuire ambiguă stil vechi în \"=%s\". Se presupune \"= %s\"\n"

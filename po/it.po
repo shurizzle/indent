@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indent-2.2.10\n"
 "Report-Msgid-Bugs-To: bug-indent@gnu.org\n"
-"POT-Creation-Date: 2018-09-01 17:48+0200\n"
+"POT-Creation-Date: 2023-01-26 10:49+0100\n"
 "PO-Revision-Date: 2019-08-19 05:18+0000\n"
 "Last-Translator: Matei Copoț <copotmatei@gmail.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -227,20 +227,20 @@ msgstr "Errore nella chiusura del file di input %s"
 msgid "File %s contains NULL-characters: cannot proceed\n"
 msgstr "Il file %s contiene caratteri NULL: non é possibile procedere\n"
 
-#: src/lexi.c:834
+#: src/lexi.c:852
 msgid "Unterminated character constant"
 msgstr "Costante di tipo carattere non terminata"
 
-#: src/lexi.c:835 src/lexi.c:854
+#: src/lexi.c:853 src/lexi.c:872
 msgid "Unterminated string constant"
 msgstr "Costante di tipo stringa non terminata"
 
-#: src/lexi.c:1113
+#: src/lexi.c:1131
 #, c-format
 msgid "old style assignment ambiguity in \"=%s\". Assuming \"= %s\"\n"
 msgstr ""
-"ambiguità nell'assegnamento di vecchio stile in \"=%s\". Viene assunto \"= %s"
-"\"\n"
+"ambiguità nell'assegnamento di vecchio stile in \"=%s\". Viene assunto \"= "
+"%s\"\n"
 
 #: src/output.c:1339
 #, c-format

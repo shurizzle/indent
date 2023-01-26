@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indent 2.2.10\n"
 "Report-Msgid-Bugs-To: bug-indent@gnu.org\n"
-"POT-Creation-Date: 2018-09-01 17:48+0200\n"
+"POT-Creation-Date: 2023-01-26 10:49+0100\n"
 "PO-Revision-Date: 2021-02-25 13:50+0000\n"
 "Last-Translator: Brandan <brandanpl@outlook.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -234,15 +234,15 @@ msgstr "Produciuse un erro ao pechar o ficheiro de entrada %s"
 msgid "File %s contains NULL-characters: cannot proceed\n"
 msgstr "Aviso: o ficheiro %s contén caracteres nulos\n"
 
-#: src/lexi.c:834
+#: src/lexi.c:852
 msgid "Unterminated character constant"
 msgstr "Constante de carácter sen rematar"
 
-#: src/lexi.c:835 src/lexi.c:854
+#: src/lexi.c:853 src/lexi.c:872
 msgid "Unterminated string constant"
 msgstr "Constante de cadea sen rematar"
 
-#: src/lexi.c:1113
+#: src/lexi.c:1131
 #, c-format
 msgid "old style assignment ambiguity in \"=%s\". Assuming \"= %s\"\n"
 msgstr "ambigüidade na asignación ao vello estilo en «=%s». Supoñendo «= %s»\n"
