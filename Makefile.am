@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 AUTOMAKE_OPTIONS = no-texinfo.tex
 
-SUBDIRS = intl src doc po man regression
+SUBDIRS = src doc po man regression
 
 BUILT_SOURCES = 
 
@@ -10,7 +10,7 @@ DISTFILES = $(DIST_COMMON:README=README.md) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_
 EXTRA_DIST = 	README.md \
 		config/config.rpath \
 		ChangeLog-1990 ChangeLog-1998 ChangeLog-2001 \
-		aclocal/UTIMBUF.m4 \
+		m4/UTIMBUF.m4 \
 		miscel/Makefile.mingw32 \
 		miscel/README.vc++ \
 		bootstrap \
