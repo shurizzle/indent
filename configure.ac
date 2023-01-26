@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.71])
-AC_INIT([GNU Indent],[2.2.12],[bug-indent@gnu.org])
+AC_INIT([GNU Indent],[2.2.13],[bug-indent@gnu.org])
 AC_CONFIG_SRCDIR(src/indent.c)
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_HEADERS([config.h])
