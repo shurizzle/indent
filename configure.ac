@@ -48,7 +48,7 @@ AC_SUBST(localedir)
 AC_CHECK_INCLUDES_DEFAULT
 AC_PROG_EGREP
 
-AC_CHECK_FUNCS(strchr memcpy memmove utime)
+AC_CHECK_FUNCS(setlocale strchr memcpy memmove utime)
 AC_CHECK_HEADERS(unistd.h string.h malloc.h utime.h sys/utime.h)
 
 if test "$ac_cv_func_utime" = yes
