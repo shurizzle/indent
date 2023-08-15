@@ -145,8 +145,8 @@ static void sw_buffer(void)
     parser_state_tos->search_brace = false;
     bp_save = buf_ptr;
     be_save = buf_end;
-    buf_ptr = save_com.ptr;
     need_chars (&save_com, 1);
+    buf_ptr = save_com.ptr;
     buf_end = save_com.end;
     save_com.end = save_com.ptr;        /* make save_com empty */
 }
