@@ -429,6 +429,7 @@ echo Testing new comment stuff...Done.
 
 
 echo Testing bad code handling....
+ERR=output/errors
 
 # print_comment() was reading past the end of the buffer...
 echo -ne '/*' | $INDENT -npro -st > /dev/null 2>&1
@@ -446,29 +447,30 @@ then
     echo >> $ERR
 fi
 
-# This ends in a error from indent but it shouldn't coredump.
-$INDENT -npro input/bug206785.c -o output/bug206785.c 2>output/bug206785.err
+# This ends in an error from indent but it shouldn't coredump.
+for TEST in bug206785 comment-heap-overwrite; do
+    $INDENT -npro input/"$TEST".c -o output/"$TEST".c 2>output/"$TEST".err
 
-if [ $? -ne 2 ]
-then
-    printf ERROR: bad return status from indent. | tee -a $ERR
-    echo >> $ERR
-fi
-cd output
+    if [ $? -ne 2 ]
+    then
+        printf "ERROR: bad return status from indent for %s.c" "$TEST" | tee -a $ERR
+        echo >> $ERR
+    fi
 
-for i in bug206785.c bug206785.err
-do
-  printf ...$i...
-  diff --initial-tab ../standard/$i $i > $i-diffs 2>&1
-  if [ -s $i-diffs ]
-  then
-    printf ERROR: $i failed | tee -a $ERR
-    echo >> $ERR
-  else
-    rm $i-diffs
-    rm $i
-  fi
-  echo
+    for i in "$TEST".c "$TEST".err
+    do
+      printf "...%s..." "$i"
+      diff --initial-tab standard/"$i" output/"$i" > output/"$i"-diffs 2>&1
+      if [ -s output/"$i"-diffs ]
+      then
+        printf "ERROR: %s failed" "$i" | tee -a $ERR
+        echo >> $ERR
+      else
+        rm output/"$i"-diffs
+        rm output/"$i"
+      fi
+      echo
+    done
 done
 
 echo Testing bad code handling...Done.

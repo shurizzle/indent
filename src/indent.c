@@ -228,6 +228,7 @@ static BOOLEAN search_brace(
                  * a `dump_line' call, thus ensuring that the brace
                  * will go into the right column. */
 
+                need_chars (&save_com, 2);
                 *save_com.end++ = EOL;
                 *save_com.end++ = '{';
                 save_com.len += 2;
