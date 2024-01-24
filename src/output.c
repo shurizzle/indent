@@ -290,7 +290,7 @@ void set_buf_break (
     /* Did we just parse a bracket that will be put on the next line
      * by this line break? */
 
-    if ((*token == '(') || (*token == '['))
+    if (level > 0 && ((*token == '(') || (*token == '[')))
     {
         --level;                        /* then don't take it into account */
     }
