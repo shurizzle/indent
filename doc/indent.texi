@@ -272,7 +272,7 @@ may put those options into a file named @file{.indent.pro}.
 the environment variable @env{INDENT_PROFILE}. If that exists its value 
 is expected to name the file that is to be used. If the environment variable does 
 not exist, indent looks for @file{.indent.pro} in the current directory
- and use that if found.  Finally @command{indent} will search
+ and uses that if found.  Finally @command{indent} will search
 your home directory for @file{.indent.pro} and use that file if it is
 found.  This behaviour is different from that of other versions of
 @command{indent}, which load both files if they both exist.
@@ -704,7 +704,7 @@ causes @option{-c} to become effective.
 If the code to the left of the comment exceeds the beginning column,
 the comment column will be extended to the next tabstop column past
 the end of the code, unless the @option{-ntac} option is specified.
-In the case of preprocessor directives,comments are extended to to one
+In the case of preprocessor directives, comments are extended to one
 space past the end of the directive.  This extension lasts only for
 the output of that particular comment.
 
@@ -1090,7 +1090,7 @@ int a, b, c;
 @kindex --dont-break-function-decl-args-end
 The @option{-bfda} option causes a newline to be forced after the comma
 separating the arguments of a function declaration.  The arguments will
-appear at one indention level deeper than the function declaration.  This 
+appear at one indentation level deeper than the function declaration.  This
 is particularly helpful for functions with long argument lists. 
 The option @option{-bfde} causes a newline to be forced before the closing 
 bracket of the function declaration. For both options the 'n' setting is the default:
@@ -1264,10 +1264,10 @@ struct s @{
 @comment  node-name,  next,  previous,  up
 @section Indentation
 
-The most basic, and most controversial issues with regard to code
-formatting is precisely how indentation should be acoomplished.
+The most basic, and most controversial issue with regard to code
+formatting is precisely how indentation should be accomplished.
 Fortunately, @command{indent} supports several different styles of
-identation.  The default is to use tabs for indentation, which is
+indentation.  The default is to use tabs for indentation, which is
 specified by the @option{-ut} option. Assuming the default tab size of
 8, the code would look like this:
 
@@ -1418,7 +1418,7 @@ unsigned long really_long_proc_name(unsigned long x, unsigned long y,
 
 @noindent
 The @option{-as} option fixes this so that the code will appear consistent
-regardless of what tab size the user users to read the code. This looks
+regardless of what tab size the user uses to read the code. This looks
 like:
 
 @example
@@ -1474,7 +1474,7 @@ overrides  @option{-nlps} and  @option{-lps}.
 @kindex -ppi@var{n}
 @kindex --preprocessor-indentation@var{n}
 This option can be used to request that preprocessor conditional statements can
-be indented by to given number of spaces, for example with the option @option{-ppi 3}
+be indented by a given number of spaces, for example with the option @option{-ppi 3}
 
 @example
 @group
@@ -1587,7 +1587,7 @@ algorithm that determines where to break a line.
 
 The @option{-bbo} option causes GNU @command{indent} to prefer to break
 long lines before the boolean operators @code{&&} and @code{||}.  The
-@option{-nbbo} option causes GNU @command{indent} not have that
+@option{-nbbo} option causes GNU @command{indent} not to have that
 preference.  For example, the default option @option{-bbo} (together
 with @option{--line-length60} and @option{--ignore-newlines}) makes code
 look like this:
@@ -1770,8 +1770,8 @@ comments start on the first line of the break.
 option) when @command{indent} is turned off with 
 @code{/* *INDENT-OFF* */}.
 
-Comments of the form @code{/*UPPERCASE*/} are not treated as comment but as an
-identifier, causing them to be joined with the next line. This renders
+Comments of the form @code{/*UPPERCASE*/} are not treated as comments but as
+identifiers, causing them to be joined with the next line. This renders
 comments of this type useless, unless they are embedded in the code to
 begin with.
 
