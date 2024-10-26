@@ -44,7 +44,7 @@ msgstr "voľba: %s\n"
 #: src/args.c:892
 #, c-format
 msgid "GNU indent %s\n"
-msgstr "GNU indent: %s\n"
+msgstr "GNU indent %s\n"
 
 #: src/args.c:959
 #, c-format
@@ -62,7 +62,7 @@ msgstr "Profil obsahuje neukončený komentár"
 
 #: src/args.c:1060
 msgid "Profile contains unpalatable characters"
-msgstr "Profil obsahuje nepríjemné znaky"
+msgstr "Profil obsahuje neprijateľné znaky"
 
 #: src/args.c:1228
 #, c-format
@@ -82,22 +82,22 @@ msgstr "indent:  Použijú sa existujúce očíslované\n"
 #: src/backup.c:495
 #, c-format
 msgid "indent: Can't make backup filename of %s\n"
-msgstr "indent: Nemôžem vytvoriť záložnú kópiu súboru %s\n"
+msgstr "indent: Nedá sa vytvoriť záložná kópia súboru %s\n"
 
 #: src/backup.c:503
 #, c-format
 msgid "Can't open backup file %s"
-msgstr "Nemôžem otvoriť záložný súbor %s"
+msgstr "Nedá sa otvoriť záložný súbor %s"
 
 #: src/backup.c:510
 #, c-format
 msgid "Can't write to backup file %s"
-msgstr "Nemôžem zapísať do záložného súboru %s"
+msgstr "Nedá sa zapísať do záložného súboru %s"
 
 #: src/backup.c:523
 #, c-format
 msgid "Can't preserve modification time on backup file %s"
-msgstr "Nemôžem zachovať čas zmeny záložného súboru %s"
+msgstr "Nedá sa zachovať čas zmeny záložného súboru %s"
 
 #: src/globs.c:46 src/globs.c:68
 #, c-format
@@ -185,12 +185,12 @@ msgstr "Čítať profil %s\n"
 #: src/code_io.c:217
 #, c-format
 msgid "Can't open input file %s"
-msgstr "Nemôžem otvoriť vstupný súbor %s"
+msgstr "Nedá sa otvoriť vstupný súbor %s"
 
 #: src/code_io.c:222
 #, c-format
 msgid "Can't stat input file %s"
-msgstr "Nemôžem zistiť stav vstupného súboru %s"
+msgstr "Nedá sa zistiť stav vstupného súboru %s"
 
 #: src/code_io.c:227
 #, c-format
@@ -244,12 +244,12 @@ msgstr "indent: nemôžem vytvoriť %s\n"
 #: src/output.c:1377
 #, c-format
 msgid "Can't close output file %s"
-msgstr "Nemôžem zatvoriť výstupný súbor %s"
+msgstr "Nedá sa zatvoriť výstupný súbor %s"
 
 #: src/output.c:1390
 #, c-format
 msgid "Can't preserve modification time on output file %s"
-msgstr "Nemôžem zachovať čas zmeny výstupného súboru %s"
+msgstr "Nedá sa zachovať čas zmeny výstupného súboru %s"
 
 #: src/parse.c:475
 msgid "Unmatched 'else'"
