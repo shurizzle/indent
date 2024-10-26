@@ -620,7 +620,7 @@ may put those options into a file named \(oq.indent.pro\(cq.
 the environment variable \fBINDENT_PROFILE\fR. If that exists its value 
 is expected to name the file that is to be used. If the environment variable does 
 not exist, indent looks for \(oq.indent.pro\(cq in the current directory
- and use that if found.  Finally \fBindent\fR will search
+ and uses that if found.  Finally \fBindent\fR will search
 your home directory for \(oq.indent.pro\(cq and use that file if it is
 found.  This behaviour is different from that of other versions of
 .B indent\fR, which load both files if they both exist.
@@ -990,7 +990,7 @@ causes \(oq-c\(cq to become effective.
 If the code to the left of the comment exceeds the beginning column,
 the comment column will be extended to the next tabstop column past
 the end of the code, unless the \(oq-ntac\(cq option is specified.
-In the case of preprocessor directives,comments are extended to to one
+In the case of preprocessor directives, comments are extended to one
 space past the end of the directive.  This extension lasts only for
 the output of that particular comment.
 
@@ -1334,7 +1334,7 @@ int a, b, c;
 
 The \(oq-bfda\(cq option causes a newline to be forced after the comma
 separating the arguments of a function declaration.  The arguments will
-appear at one indention level deeper than the function declaration.  This 
+appear at one indentation level deeper than the function declaration.  This
 is particularly helpful for functions with long argument lists. 
 The option \(oq-bfde\(cq causes a newline to be forced before the closing 
 bracket of the function declaration. For both options the \(cqn\(cq setting is the default:
@@ -1502,10 +1502,10 @@ struct s {
 
 .SH "INDENTATION"
 
-The most basic, and most controversial issues with regard to code
-formatting is precisely how indentation should be acoomplished.
+The most basic, and most controversial issue with regard to code
+formatting is precisely how indentation should be accomplished.
 Fortunately, \fBindent\fR supports several different styles of
-identation.  The default is to use tabs for indentation, which is
+indentation.  The default is to use tabs for indentation, which is
 specified by the \(oq-ut\(cq option. Assuming the default tab size of
 8, the code would look like this:
 
@@ -1652,7 +1652,7 @@ unsigned long really_long_proc_name(unsigned long x, unsigned long y,
 .fi
 
 The \(oq-as\(cq option fixes this so that the code will appear consistent
-regardless of what tab size the user users to read the code. This looks
+regardless of what tab size the user uses to read the code. This looks
 like:
 
 .in +5
@@ -1702,7 +1702,7 @@ directs \fBindent\fR to leave this space unmodified. The option \(oq-ppi\(cq
 overrides  \(oq-nlps\(cq and  \(oq-lps\(cq.
 
 This option can be used to request that preprocessor conditional statements can
-be indented by to given number of spaces, for example with the option \(oq-ppi 3\(cq
+be indented by a given number of spaces, for example with the option \(oq-ppi 3\(cq
 
 .in +5
 .nf
@@ -1807,7 +1807,7 @@ algorithm that determines where to break a line.
 
 The \(oq-bbo\(cq option causes GNU \fBindent\fR to prefer to break
 long lines before the boolean operators \fB&&\fR and \fB||\fR.  The
-\(oq-nbbo\(cq option causes GNU \fBindent\fR not have that
+\(oq-nbbo\(cq option causes GNU \fBindent\fR not to have that
 preference.  For example, the default option \(oq-bbo\(cq (together
 with \(oq--line-length60\(cq and \(oq--ignore-newlines\(cq) makes code
 look like this:
@@ -1985,8 +1985,8 @@ comments start on the first line of the break.
 option) when \fBindent\fR is turned off with 
 .B /* *INDENT-OFF* */\fR.
 
-Comments of the form \fB/*UPPERCASE*/\fR are not treated as comment but as an
-identifier, causing them to be joined with the next line. This renders
+Comments of the form \fB/*UPPERCASE*/\fR are not treated as comments but as
+identifiers, causing them to be joined with the next line. This renders
 comments of this type useless, unless they are embedded in the code to
 begin with.
 
