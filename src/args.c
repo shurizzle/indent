@@ -87,23 +87,27 @@ RCSTAG_CC ("$Id$");
      "-nbad\0-bap\0-nbc\0-bbo\0-hnl\0-br\0-brs\0-c33\0-cd33\0" \
      "-ncdb\0-ce\0-ci4\0-cli0\0-d0\0-di1\0-nfc1\0-i4\0-ip0\0-l75\0-lp\0" \
      "-npcs\0-nprs\0-npsl\0-sai\0-saf\0-saw\0-cs\0-nsc\0-nsob\0-nfca\0-cp33\0"\
-     "-nss\0-par\0-sar\0"
+     "-nss\0-par\0-sar\0"\
+     "-sad\0-safd\0-sbe\0-sbfb\0-sbib\0-sbsb\0-sbwb\0-sbw\0"
 
 #define GNU_SETTINGS_STRING \
      "-nbad\0-bap\0-bbo\0-hnl\0-nbc\0-bl\0-bls\0-ncdb\0-cs\0-nce\0" \
      "-di2\0-ndj\0-nfc1\0-i2\0-ip5\0-lp\0-pcs\0-nprs\0-psl\0-nsc\0-sai\0-saf\0-saw\0-nsob\0" \
-     "-bli2\0-cp1\0-nfca\0"
+     "-bli2\0-cp1\0-nfca\0"\
+     "-sad\0-safd\0-sbe\0-sbfb\0-sbib\0-sbsb\0-sbwb\0-sbw\0"
 
 #define ORIG_SETTINGS_STRING \
      "-nbap\0-nbad\0-bbo\0-hnl\0-bc\0-br\0-brs\0-c33\0-cd33\0-cdb\0" \
      "-ce\0-ci4\0-cli0\0-cp33\0-di16\0-fc1\0-fca\0-i4\0-l75\0-lp\0-npcs\0-nprs\0" \
-     "-psl\0-sc\0-sai\0-saf\0-saw\0-nsob\0-nss\0-ts8\0"
+     "-psl\0-sc\0-sai\0-saf\0-saw\0-nsob\0-nss\0-ts8\0"\
+     "-sad\0-safd\0-sbe\0-sbfb\0-sbib\0-sbsb\0-sbwb\0-sbw\0"
 
 #define LINUX_SETTINGS_STRING \
      "-nbad\0-bap\0-nbc\0-bbo\0-hnl\0-br\0-brs\0-c33\0-cd33\0" \
      "-ncdb\0-ce\0-ci4\0-cli0\0-d0\0-di1\0-nfc1\0-i8\0-ip0\0-l80\0-lp\0" \
      "-npcs\0-nprs\0-npsl\0-sai\0-saf\0-saw\0-ncs\0-nsc\0-sob\0-nfca\0-cp33\0-ss\0" \
-     "-ts8\0-il1\0-nbs\0"
+     "-ts8\0-il1\0-nbs\0"\
+     "-sad\0-safd\0-sbe\0-sbfb\0-sbib\0-sbsb\0-sbwb\0-sbw\0"
 
 const char *settings_strings[6] = {
 	KR_SETTINGS_STRING,
@@ -219,6 +223,14 @@ static int exp_ut   = 0;
 static int exp_v    = 0;
 static int exp_version = 0;
 static int exp_par  = 0;
+static int exp_sad  = 0;
+static int exp_safd = 0;
+static int exp_sbe  = 0;
+static int exp_sbfb = 0;
+static int exp_sbib = 0;
+static int exp_sbsb = 0;
+static int exp_sbwb = 0;
+static int exp_sbw  = 0;
 static int exp_slc  = 0;
 static int exp_as   = 0;
 static int exp_sar  = 0;
@@ -285,7 +297,15 @@ const pro_ty pro[] =
     {"ss",      PRO_BOOL,                           false,       ON, &settings.space_sp_semicolon,               &exp_ss},
     {"sob",     PRO_BOOL,                           false,       ON, &settings.swallow_optional_blanklines,      &exp_sob},
     {"sc",      PRO_BOOL,                            true,       ON, &settings.star_comment_cont,                &exp_sc},
+    {"sbwb",    PRO_BOOL,                            true,       ON, &settings.space_before_while_block,         &exp_sbwb},
+    {"sbw" ,    PRO_BOOL,                            true,       ON, &settings.space_before_while,               &exp_sbw},
+    {"sbsb",    PRO_BOOL,                            true,       ON, &settings.space_before_switch_block,        &exp_sbsb},
+    {"sbib",    PRO_BOOL,                            true,       ON, &settings.space_before_if_block,            &exp_sbib},
     {"sbi",     PRO_INT,                                0, ONOFF_NA, &settings.struct_brace_indent,              &exp_sbi},
+    {"sbfb",    PRO_BOOL,                            true,       ON, &settings.space_before_for_block,           &exp_sbfb},
+    {"sbe" ,    PRO_BOOL,                            true,       ON, &settings.space_before_else,                &exp_sbe},
+    {"safd",    PRO_BOOL,                            true,       ON, &settings.space_after_func_def,             &exp_safd},
+    {"sad",     PRO_BOOL,                            true,       ON, &settings.space_after_do,                   &exp_sad},
     {"saw",     PRO_BOOL,                            true,       ON, &settings.space_after_while,                &exp_saw},
     {"sai",     PRO_BOOL,                            true,       ON, &settings.space_after_if,                   &exp_sai},
     {"saf",     PRO_BOOL,                            true,       ON, &settings.space_after_for,                  &exp_saf},
@@ -302,9 +322,17 @@ const pro_ty pro[] =
     {"nss",     PRO_BOOL,                           false,      OFF, &settings.space_sp_semicolon,               &exp_ss},
     {"nsob",    PRO_BOOL,                           false,      OFF, &settings.swallow_optional_blanklines,      &exp_sob},
     {"nsc",     PRO_BOOL,                            true,      OFF, &settings.star_comment_cont,                &exp_sc},
+    {"nsbwb",   PRO_BOOL,                           false,      OFF, &settings.space_before_while_block,         &exp_sbwb},
+    {"nsbw" ,   PRO_BOOL,                           false,      OFF, &settings.space_before_while,               &exp_sbw},
+    {"nsbsb",   PRO_BOOL,                           false,      OFF, &settings.space_before_switch_block,        &exp_sbsb},
+    {"nsbib",   PRO_BOOL,                           false,      OFF, &settings.space_before_if_block,            &exp_sbib},
+    {"nsbfb",   PRO_BOOL,                           false,      OFF, &settings.space_before_for_block,           &exp_sbfb},
+    {"nsbe" ,   PRO_BOOL,                           false,      OFF, &settings.space_before_else,                &exp_sbe},
     {"nsaw",    PRO_BOOL,                            true,      OFF, &settings.space_after_while,                &exp_saw},
     {"nsai",    PRO_BOOL,                            true,      OFF, &settings.space_after_if,                   &exp_sai},
+    {"nsafd",   PRO_BOOL,                           false,      OFF, &settings.space_after_func_def,             &exp_safd},
     {"nsaf",    PRO_BOOL,                            true,      OFF, &settings.space_after_for,                  &exp_saf},
+    {"nsad",    PRO_BOOL,                           false,      OFF, &settings.space_after_do,                   &exp_sad},
     {"npsl",    PRO_BOOL,                            true,      OFF, &settings.procnames_start_line,             &exp_psl},
     {"nprs",    PRO_BOOL,                           false,      OFF, &settings.parentheses_space,                &exp_prs},
     {"npro",    PRO_IGN,                                0, ONOFF_NA, 0,                                          &exp_pro},
@@ -412,7 +440,15 @@ const pro_ty pro[] =
     {"ss",      PRO_BOOL,                           false,       ON, &settings.space_sp_semicolon,               &exp_ss},
     {"sob",     PRO_BOOL,                           false,       ON, &settings.swallow_optional_blanklines,      &exp_sob},
     {"sc",      PRO_BOOL,                           false,       ON, &settings.star_comment_cont,                &exp_sc},
+    {"sbw" ,    PRO_BOOL,                            true,       ON, &settings.space_before_while,               &exp_sbw},
+    {"sbwb",    PRO_BOOL,                            true,       ON, &settings.space_before_while_block,         &exp_sbwb},
+    {"sbsb",    PRO_BOOL,                            true,       ON, &settings.space_before_switch_block,        &exp_sbsb},
+    {"sbib",    PRO_BOOL,                            true,       ON, &settings.space_before_if_block,            &exp_sbib},
     {"sbi",     PRO_INT,                                0, ONOFF_NA, &settings.struct_brace_indent,              &exp_sbi},
+    {"sbfb",    PRO_BOOL,                            true,       ON, &settings.space_before_for_block,           &exp_sbfb},
+    {"sbe" ,    PRO_BOOL,                            true,       ON, &settings.space_before_else,                &exp_sbe},
+    {"safd",    PRO_BOOL,                            true,       ON, &settings.space_after_func_def,             &exp_safd},
+    {"sad",     PRO_BOOL,                            true,       ON, &settings.space_after_do,                   &exp_sad},
     {"saw",     PRO_BOOL,                            true,       ON, &settings.space_after_while,                &exp_saw},
     {"sai",     PRO_BOOL,                            true,       ON, &settings.space_after_if,                   &exp_sai},
     {"saf",     PRO_BOOL,                            true,       ON, &settings.space_after_for,                  &exp_saf},
@@ -430,9 +466,17 @@ const pro_ty pro[] =
     {"nss",     PRO_BOOL,                           false,      OFF, &settings.space_sp_semicolon,               &exp_ss},
     {"nsob",    PRO_BOOL,                           false,      OFF, &settings.swallow_optional_blanklines,      &exp_sob},
     {"nsc",     PRO_BOOL,                           false,      OFF, &settings.star_comment_cont,                &exp_sc},
+    {"nsbwb",   PRO_BOOL,                           false,      OFF, &settings.space_before_while_block,         &exp_sbwb},
+    {"nsbw" ,   PRO_BOOL,                           false,      OFF, &settings.space_before_while,               &exp_sbw},
+    {"nsbsb",   PRO_BOOL,                           false,      OFF, &settings.space_before_switch_block,        &exp_sbsb},
+    {"nsbib",   PRO_BOOL,                           false,      OFF, &settings.space_before_if_block,            &exp_sbib},
+    {"nsbfb",   PRO_BOOL,                           false,      OFF, &settings.space_before_for_block,           &exp_sbfb},
+    {"nsbe" ,   PRO_BOOL,                           false,      OFF, &settings.space_before_else,                &exp_sbe},
     {"nsaw",    PRO_BOOL,                            true,      OFF, &settings.space_after_while,                &exp_saw},
     {"nsai",    PRO_BOOL,                            true,      OFF, &settings.space_after_if,                   &exp_sai},
+    {"nsafd",   PRO_BOOL,                           false,      OFF, &settings.space_after_func_def,             &exp_safd},
     {"nsaf",    PRO_BOOL,                            true,      OFF, &settings.space_after_for,                  &exp_saf},
+    {"nsad",    PRO_BOOL,                           false,      OFF, &settings.space_after_do,                   &exp_sad},
     {"npsl",    PRO_BOOL,                            true,      OFF, &settings.procnames_start_line,             &exp_psl},
     {"nprs",    PRO_BOOL,                           false,      OFF, &settings.parentheses_space,                &exp_prs},
     {"npro",    PRO_IGN,                                0, ONOFF_NA, 0,                                          &exp_pro},
@@ -551,6 +595,14 @@ const long_option_conversion_ty option_conversions[] =
     {"space-after-if",                              "sai"},
     {"space-after-for",                             "saf"},
     {"space-after-cast",                            "cs"},
+    {"space-after-do",                              "sad"},
+    {"space-after-func-def",                        "safd"},
+    {"space-before-else",                           "sbe"},
+    {"space-before-for-block",                      "sbfb"},
+    {"space-before-while",                          "sbw"},
+    {"space-before-if-block",                       "sbib"},
+    {"space-before-switch-block",                   "sbsb"},
+    {"space-before-while-block",                    "sbwb"},
     {"remove-preprocessor-space",                   "nlps"},
     {"procnames-start-lines",                       "psl"},
 #ifdef PRESERVE_MTIME
@@ -571,6 +623,15 @@ const long_option_conversion_ty option_conversions[] =
     {"no-space-after-for",                          "nsaf"},
     {"no-space-after-cast",                         "ncs"},
     {"no-space-after-casts",                        "ncs"},
+    {"no-space-after-func-def",                     "nsafd"},
+    {"no-space-after-do",                           "nsad"},
+    {"no-space-before-while",                       "nsbw"},
+    {"no-space-before-else",                        "nsbe"},
+    {"no-space-before-if-block",                    "nsbib"},
+    {"no-space-before-switch-block",                "nsbsb"},
+    {"no-space-before-for-block",                   "nsbfb"},
+    {"no-space-before-while-block",                 "nsbwb"},
+    {"remove-preprocessor-space",                   "nlps"},
     {"no-parameter-indentation",                    "nip"},
     {"no-extra-expression-indentation",             "neei"},
     {"no-gettext-strings",                          "ngts"},

@@ -260,6 +260,14 @@ typedef struct user_options_st
     int swallow_optional_blanklines;
     int star_comment_cont;   /*!<  true if comment continuation lines should have stars at the beginning of each line. */
     int struct_brace_indent; /*!<  Indentation level to be used for a '{' directly following a struct, union or enum */
+    int space_after_func_def; /*!< Put a space after a function definition */
+    int space_after_do;      /*!< Put a space after `do' */
+    int space_before_while;  /*!< Put a space before `while' in do-while */
+    int space_before_else;   /*!< Put a space before `else' */
+    int space_before_if_block; /*!< Put a space before `{' in if */
+    int space_before_switch_block; /*!< Put a space before `{' in switch */
+    int space_before_for_block; /*!< Put a space before `{' in for */
+    int space_before_while_block; /*!< Put a space before `{' in while */
     int space_after_while;   /*!<  Put a space after `while' */
     int space_after_if;      /*!<  Put a space after `if' */
     int space_after_for;     /*!<  Put a space after `for' */

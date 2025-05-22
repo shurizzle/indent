@@ -367,6 +367,46 @@ Do not put a space after every \fBwhile\fR.
 .br
 See \fB\ STATEMENTS\fR.
 .TP
+.B -nsad\fR, \fB--no-space-after-do\fR
+Do not put a space after every \fBdo\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsafd\fR, \fB--no-space-after-func-def\fR
+Do not put a space after every function definition.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbe\fR, \fB--no-space-before-else\fR
+Do not put a space before every \fBelse\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbfb\fR, \fB--no-space-before-for-block\fR
+Do not put a space before every \fBfor\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbib\fR, \fB--no-space-before-if-block\fR
+Do not put a space before every \fBif\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbsb\fR, \fB--no-space-before-switch-block\fR
+Do not put a space before every \fBswitch\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbwb\fR, \fB--no-space-before-while-block\fR
+Do not put a space before every \fBwhile\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -nsbw\fR, \fB--no-space-before-while\fR
+Do not put a space before every \fBwhile\fR in \fBdo\fR-\fBblock\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
 .B -nsc\fR, \fB--dont-star-comments\fR
 Do not put the \(oq*\(cq character at the left of comments.
 .br
@@ -459,6 +499,46 @@ See \fB\ DECLARATIONS\fR.
 .TP
 .B -saw\fR, \fB--space-after-while\fR
 Put a space after each \fBwhile\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sad\fR, \fB--space-after-do\fR
+Put a space after every \fBdo\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -safd\fR, \fB--space-after-func-def\fR
+Put a space after every function definition.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbe\fR, \fB--space-before-else\fR
+Put a space before every \fBelse\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbfb\fR, \fB--space-before-for-block\fR
+Put a space before every \fBfor\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbib\fR, \fB--space-before-if-block\fR
+Put a space before every \fBif\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbsb\fR, \fB--space-before-switch-block\fR
+Put a space before every \fBswitch\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbwb\fR, \fB--space-before-while-block\fR
+Put a space before every \fBwhile\fR body block.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sbw\fR, \fB--space-before-while\fR
+Put a space before every \fBwhile\fR in \fBdo\fR-\fBblock\fR.
 .br
 See \fB\ STATEMENTS\fR.
 .TP
@@ -699,6 +779,7 @@ error.  Option settings which correspond to the GNU style are:
 -nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2
 -ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -nprs -psl -saf -sai
 -saw -nsc -nsob
+-sad -safd -sbe -sbfb -sbib -sbsb -sbwb -sbw
 .in -5
 .ad
 .fi
@@ -721,6 +802,7 @@ of options:
 -nbad -bap -bbo -nbc -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0
 -cp33 -cs -d0 -di1 -nfc1 -nfca -hnl -i4 -ip0 -l75 -lp -npcs
 -nprs -npsl -saf -sai -saw -nsc -nsob -nss -par
+-sad -safd -sbe -sbfb -sbib -sbsb -sbwb -sbw
 .in -5
 .ad
 .fi
@@ -740,6 +822,7 @@ long option name).  This style is equivalent to the following settings:
 -nbad -nbap -bbo -bc -br -brs -c33 -cd33 -cdb -ce -ci4 -cli0
 -cp33 -di16 -fc1 -fca -hnl -i4 -ip4 -l75 -lp -npcs -nprs -psl
 -saf -sai -saw -sc -nsob -nss -ts8
+-sad -safd -sbe -sbfb -sbib -sbsb -sbwb -sbw
 .in -5
 .ad
 .fi
@@ -754,6 +837,7 @@ This style is equivalent to the following settings:
 -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 
 -cli0 -d0 -di1 -nfc1 -i8 -ip0 -l80 -lp -npcs -nprs -npsl -sai
 -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -ts8 -il1
+-sad -safd -sbe -sbfb -sbib -sbsb -sbwb -sbw
 .in -5
 .ad
 .fi
@@ -1251,6 +1335,36 @@ and the following parenthesis.  This is the default.
 
 The \(oq-saw\(cq option forces a space between a \fBwhile\fR
 and the following parenthesis.  This is the default.
+
+The \(oq-sad\(cq option forces a space between a \fBdo\fR
+and the following \(oq{\(cq.  This is the default.
+
+The \(oq-safd\(cq option forces a space between the \(oq)\(cq
+and the following \(oq{\(cq in a function definition statement.
+This is the default.
+
+The \(oq-sbe\(cq option forces a space between the \(oq}\(cq
+and the following \fBelse\fR.  This is the default.
+
+The \(oq-sbfb\(cq option forces a space between the \(oq)\(cq
+and the following \(oq{\(cq in a \fBfor\fR statement.
+This is the default.
+
+The \(oq-sbib\(cq option forces a space between the \(oq)\(cq
+and the following \(oq{\(cq in a \fBif\fR statement.
+This is the default.
+
+The \(oq-sbsb\(cq option forces a space between the \(oq)\(cq
+and the following \(oq{\(cq in a \fBswitch\fR statement.
+This is the default.
+
+The \(oq-sbwb\(cq option forces a space between the \(oq)\(cq
+and the following \(oq{\(cq in a \fBwhile\fR statement.
+This is the default.
+
+The \(oq-sbw\(cq option forces a space between the \(oq}\(cq
+and the following \fBwhile\fR in a \fBdo\fR-\fBwhile\fR statement.
+This is the default.
 
 The \(oq-prs\(cq option causes all parentheses to be separated with
 a space from whatever is between them.  For example, using \(oq-prs\(cq
@@ -2100,6 +2214,14 @@ the corresponding short option.
 --no-space-after-if				-nsai
 --no-space-after-parentheses                    -nprs
 --no-space-after-while				-nsaw
+--no-space-after-do                             -nsad
+--no-space-after-func-def                       -nsafd
+--no-space-before-else                          -nsbe
+--no-space-before-for-block                     -nsbfb
+--no-space-before-if-block                      -nsbib
+--no-space-before-switch-block                  -nsbsb
+--no-space-before-while-block                   -nsbwb
+--no-space-before-while                         -nsbw
 --no-tabs                                       -nut
 --no-verbosity                                  -nv             
 --original                                      -orig
@@ -2116,6 +2238,14 @@ the corresponding short option.
 --space-after-parentheses                       -prs
 --space-after-procedure-calls                   -pcs            
 --space-after-while				-saw
+--space-after-do                                -sad
+--space-after-func-def                          -safd
+--space-before-else                             -sbe
+--space-before-for-block                        -sbfb
+--space-before-if-block                         -sbib
+--space-before-switch-block                     -sbsb
+--space-before-while-block                      -sbwb
+--space-before-while                            -sbw
 --space-special-semicolon                       -ss             
 --spaces-around-initializers                    -sar
 --standard-output                               -st             

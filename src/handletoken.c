@@ -1042,6 +1042,55 @@ static void handle_token_semicolon(
     }
 }
 
+static BOOLEAN
+lbrace_want_blank_by_buffer(void)
+{
+    switch (*s_code)
+    {
+    case 'i':
+        if (e_code - s_code < 3 ||
+            s_code[1] != 'f' ||
+            !(isspace(s_code[2]) || s_code[2] == '('))
+        {
+            return true;
+        }
+        return settings.space_before_if_block;
+    case 's':
+        if (e_code - s_code < 7 ||
+            s_code[1] != 'w' ||
+            s_code[2] != 'i' ||
+            s_code[3] != 't' ||
+            s_code[4] != 'c' ||
+            s_code[5] != 'h' ||
+            !(isspace(s_code[6]) || s_code[6] == '('))
+        {
+          return true;
+        }
+        return settings.space_before_switch_block;
+    case 'f':
+        if (e_code - s_code < 4 ||
+            s_code[1] != 'o' ||
+            s_code[2] != 'r' ||
+            !(isspace(s_code[3]) || s_code[3] == '('))
+        {
+          return true;
+        }
+        return settings.space_before_for_block;
+    case 'w':
+        if (e_code - s_code < 6 ||
+            s_code[1] != 'h' ||
+            s_code[2] != 'i' ||
+            s_code[3] != 'l' ||
+            s_code[4] != 'e' ||
+            !(isspace(s_code[5]) || s_code[5] == '('))
+        {
+          return true;
+        }
+        return settings.space_before_while_block;
+    default: return true;
+    }
+}
+
 /**
  *
  */
@@ -1141,12 +1190,27 @@ static void handle_token_lbrace(
                 {
                     dump_line (true, &paren_target, pbreak_line);
                 }
-                else
+                else if (settings.space_after_func_def)
                 {
                     *(e_code++) = ' ';
                 }
                 
                 parser_state_tos->want_blank = false;
+            }
+            else if (parser_state_tos->last_token == sp_else)
+            {
+                parser_state_tos->want_blank = settings.space_before_else;
+            }
+            else if (parser_state_tos->last_token == sp_nparen)
+            {
+                parser_state_tos->want_blank = settings.space_after_do;
+            }
+            else if (parser_state_tos->last_token == rparen &&
+                     !parser_state_tos->in_decl &&
+                     parser_state_tos->block_init == 0 &&
+                     s_code != e_code)
+            {
+                parser_state_tos->want_blank = lbrace_want_blank_by_buffer();
             }
             else
             {
@@ -1431,6 +1495,15 @@ static void handle_token_sp_paren(
     /* remember the type of header for later use by parser */
     *hd_type =
             (*token == 'i' ? ifstmt : (*token == 'w' ? whilestmt : forstmt));
+
+    if (!settings.space_before_while &&
+        *token == 'w' &&
+        settings.cuddle_do_while &&
+        e_code != s_code &&
+        e_code[-1] == '}')
+    {
+        parser_state_tos->want_blank = false;
+    }
 }
 
 /**
@@ -1454,6 +1527,10 @@ static void handle_token_nparen(
             }
             
             dump_line (true, &paren_target, pbreak_line);       /* make sure this starts a line */
+            parser_state_tos->want_blank = false;
+        }
+        else if (!settings.space_before_else)
+        {
             parser_state_tos->want_blank = false;
         }
         
