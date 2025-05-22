@@ -357,7 +357,7 @@ error.  Option settings which correspond to the GNU style are:
 @group
 -nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2
 -ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -nprs -psl -saf -sai
--saw -nsc -nsob
+-saw -nsc -nsob -sas
 @end group
 @end example
 
@@ -382,7 +382,7 @@ of options:
 @group
 -nbad -bap -bbo -nbc -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0
 -cp33 -cs -d0 -di1 -nfc1 -nfca -hnl -i4 -ip0 -l75 -lp -npcs
--nprs -npsl -saf -sai -saw -nsc -nsob -nss -par
+-nprs -npsl -saf -sai -saw -nsc -nsob -nss -par -sas
 @end group
 @end example
 
@@ -404,7 +404,7 @@ long option name).  This style is equivalent to the following settings:
 @group
 -nbad -nbap -bbo -bc -br -brs -c33 -cd33 -cdb -ce -ci4 -cli0
 -cp33 -di16 -fc1 -fca -hnl -i4 -ip4 -l75 -lp -npcs -nprs -psl
--saf -sai -saw -sc -nsob -nss -ts8
+-saf -sai -saw -sc -nsob -nss -ts8 -sas
 @end group
 @end example
 
@@ -419,7 +419,7 @@ This style is equivalent to the following settings:
 @group
 -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 
 -cli0 -d0 -di1 -nfc1 -i8 -ip0 -l80 -lp -npcs -nprs -npsl -sai
--saf -saw -ncs -nsc -sob -nfca -cp33 -ss -ts8 -il1
+-saf -saw -ncs -nsc -sob -nfca -cp33 -ss -ts8 -il1 -sas
 @end group
 @end example
 
@@ -1001,6 +1001,13 @@ and the following parenthesis.  This is the default.
 @kindex -nsaw
 @kindex --no-space-after-while
 The @option{-saw} option forces a space between a @code{while}
+and the following parenthesis.  This is the default.
+
+@kindex -sas
+@kindex --space-after-switch
+@kindex -nsas
+@kindex --no-space-after-switch
+The @option{-sas} option forces a space between a @code{switch}
 and the following parenthesis.  This is the default.
 
 @kindex -prs
@@ -2170,6 +2177,11 @@ Do not put a space after every @code{if}.@*
 Do not put a space after every @code{while}.@*
 @xref{Statements}.
 
+@item -nsas
+@itemx --no-space-after-switch
+Do not put a space after every @code{switch}.@*
+@xref{Statements}.
+
 @item -nsc
 @itemx --dont-star-comments
 Do not put the @samp{*} character at the left of comments.@*
@@ -2271,6 +2283,11 @@ Put a space after the @samp{@{} and before the @samp{@}} in initializers.@*
 @item -saw
 @itemx --space-after-while
 Put a space after each @code{while}.@*
+@xref{Statements}.
+
+@item -sas
+@itemx --space-after-switch
+Put a space after each @code{switch}.@*
 @xref{Statements}.
 
 @item -sbi@var{n}
@@ -2409,6 +2426,7 @@ the corresponding short option.
 \line{ --no-space-after-if \leaderfill             -nsai}
 \line{ --no-space-after-parentheses \leaderfill          -nprs}
 \line{ --no-space-after-while \leaderfill             -nsaw}
+\line{ --no-space-after-switch \leaderfill            -nsas}
 \line{ --no-tabs \leaderfill                            -nut\ \ } 
 \line{ --no-verbosity \leaderfill                       -nv\ \ }
 \line{ --original \leaderfill                      -orig}
@@ -2425,6 +2443,7 @@ the corresponding short option.
 \line{ --space-after-parentheses \leaderfill       -prs\ }
 \line{ --space-after-procedure-calls \leaderfill   -pcs\ }  
 \line{ --space-after-while \leaderfill             -saw\ }
+\line{ --space-after-switch \leaderfill            -sas\ }
 \line{ --space-special-semicolon \leaderfill       -ss\ \ } 
 \line{ --spaces-around-initializers \leaderfill    -sar\ \ }
 \line{ --standard-output \leaderfill      -st\ \ } 
@@ -2505,6 +2524,7 @@ the corresponding short option.
 --no-space-after-if				-nsai
 --no-space-after-parentheses                    -nprs
 --no-space-after-while				-nsaw
+--no-space-after-switch			    -nsas
 --no-tabs                                       -nut
 --no-verbosity                                  -nv             
 --original                                      -orig
@@ -2521,6 +2541,7 @@ the corresponding short option.
 --space-after-parentheses                       -prs
 --space-after-procedure-calls                   -pcs            
 --space-after-while				-saw
+--space-after-switch			-sas
 --space-special-semicolon                       -ss             
 --spaces-around-initializers                    -sar
 --standard-output                               -st             

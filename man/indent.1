@@ -367,6 +367,11 @@ Do not put a space after every \fBwhile\fR.
 .br
 See \fB\ STATEMENTS\fR.
 .TP
+.B -nsas\fR, \fB--no-space-after-switch\fR
+Do not put a space after every \fBswitch\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
 .B -nsc\fR, \fB--dont-star-comments\fR
 Do not put the \(oq*\(cq character at the left of comments.
 .br
@@ -459,6 +464,11 @@ See \fB\ DECLARATIONS\fR.
 .TP
 .B -saw\fR, \fB--space-after-while\fR
 Put a space after each \fBwhile\fR.
+.br
+See \fB\ STATEMENTS\fR.
+.TP
+.B -sas\fR, \fB--space-after-switch\fR
+Put a space after each \fBswitch\fR.
 .br
 See \fB\ STATEMENTS\fR.
 .TP
@@ -698,7 +708,7 @@ error.  Option settings which correspond to the GNU style are:
 .na
 -nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2
 -ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -nprs -psl -saf -sai
--saw -nsc -nsob
+-saw -nsc -nsob -sas
 .in -5
 .ad
 .fi
@@ -720,7 +730,7 @@ of options:
 .na
 -nbad -bap -bbo -nbc -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0
 -cp33 -cs -d0 -di1 -nfc1 -nfca -hnl -i4 -ip0 -l75 -lp -npcs
--nprs -npsl -saf -sai -saw -nsc -nsob -nss -par
+-nprs -npsl -saf -sai -saw -nsc -nsob -nss -par -sas
 .in -5
 .ad
 .fi
@@ -739,7 +749,7 @@ long option name).  This style is equivalent to the following settings:
 .na
 -nbad -nbap -bbo -bc -br -brs -c33 -cd33 -cdb -ce -ci4 -cli0
 -cp33 -di16 -fc1 -fca -hnl -i4 -ip4 -l75 -lp -npcs -nprs -psl
--saf -sai -saw -sc -nsob -nss -ts8
+-saf -sai -saw -sc -nsob -nss -ts8 -sas
 .in -5
 .ad
 .fi
@@ -753,7 +763,7 @@ This style is equivalent to the following settings:
 .na
 -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 
 -cli0 -d0 -di1 -nfc1 -i8 -ip0 -l80 -lp -npcs -nprs -npsl -sai
--saf -saw -ncs -nsc -sob -nfca -cp33 -ss -ts8 -il1
+-saf -saw -ncs -nsc -sob -nfca -cp33 -ss -ts8 -il1 -sas
 .in -5
 .ad
 .fi
@@ -1250,6 +1260,9 @@ The \(oq-sai\(cq option forces a space between a \fBif\fR
 and the following parenthesis.  This is the default.
 
 The \(oq-saw\(cq option forces a space between a \fBwhile\fR
+and the following parenthesis.  This is the default.
+
+The \(oq-sas\(cq option forces a space between a \fBswitch\fR
 and the following parenthesis.  This is the default.
 
 The \(oq-prs\(cq option causes all parentheses to be separated with
@@ -2100,6 +2113,7 @@ the corresponding short option.
 --no-space-after-if				-nsai
 --no-space-after-parentheses                    -nprs
 --no-space-after-while				-nsaw
+--no-space-after-switch			    -nsas
 --no-tabs                                       -nut
 --no-verbosity                                  -nv             
 --original                                      -orig
@@ -2116,6 +2130,7 @@ the corresponding short option.
 --space-after-parentheses                       -prs
 --space-after-procedure-calls                   -pcs            
 --space-after-while				-saw
+--space-after-switch			-sas
 --space-special-semicolon                       -ss             
 --spaces-around-initializers                    -sar
 --standard-output                               -st             

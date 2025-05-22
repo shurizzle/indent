@@ -167,12 +167,15 @@ static void copy_id(
 
     parser_state_tos->want_blank = true;
 
-    /* Handle the options -nsaf, -nsai and -nsaw */
+    /* Handle the options -nsaf, -nsai, -nsaw and -nsas */
 
-    if ((type_code == sp_paren) &&
-        ((!settings.space_after_if && (*token == 'i')) ||
-         (!settings.space_after_for && (*token == 'f')) ||
-         (!settings.space_after_while && (*token == 'w'))))
+    if (((type_code == sp_paren) &&
+         ((!settings.space_after_if && (*token == 'i')) ||
+          (!settings.space_after_for && (*token == 'f')) ||
+          (!settings.space_after_while && (*token == 'w')))) ||
+        (type_code == swstmt &&
+         !settings.space_after_switch &&
+         *token == 's'))
     {
         parser_state_tos->want_blank = false;
     }

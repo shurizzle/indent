@@ -263,6 +263,7 @@ typedef struct user_options_st
     int space_after_while;   /*!<  Put a space after `while' */
     int space_after_if;      /*!<  Put a space after `if' */
     int space_after_for;     /*!<  Put a space after `for' */
+    int space_after_switch;  /*!<  Put a space after `switch' */
     int procnames_start_line; /*!<  if true, the names of procedures being  defined get placed in column 1 (ie. a
                                * newline is placed between the type of the procedure and its name) */
     int parentheses_space;   /*!<  If true, parentheses will look like: ( foo ) rather than (foo) */

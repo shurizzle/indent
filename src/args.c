@@ -87,23 +87,23 @@ RCSTAG_CC ("$Id$");
      "-nbad\0-bap\0-nbc\0-bbo\0-hnl\0-br\0-brs\0-c33\0-cd33\0" \
      "-ncdb\0-ce\0-ci4\0-cli0\0-d0\0-di1\0-nfc1\0-i4\0-ip0\0-l75\0-lp\0" \
      "-npcs\0-nprs\0-npsl\0-sai\0-saf\0-saw\0-cs\0-nsc\0-nsob\0-nfca\0-cp33\0"\
-     "-nss\0-par\0-sar\0"
+     "-nss\0-par\0-sar\0-sas\0"
 
 #define GNU_SETTINGS_STRING \
      "-nbad\0-bap\0-bbo\0-hnl\0-nbc\0-bl\0-bls\0-ncdb\0-cs\0-nce\0" \
      "-di2\0-ndj\0-nfc1\0-i2\0-ip5\0-lp\0-pcs\0-nprs\0-psl\0-nsc\0-sai\0-saf\0-saw\0-nsob\0" \
-     "-bli2\0-cp1\0-nfca\0"
+     "-bli2\0-cp1\0-nfca\0-sas\0"
 
 #define ORIG_SETTINGS_STRING \
      "-nbap\0-nbad\0-bbo\0-hnl\0-bc\0-br\0-brs\0-c33\0-cd33\0-cdb\0" \
      "-ce\0-ci4\0-cli0\0-cp33\0-di16\0-fc1\0-fca\0-i4\0-l75\0-lp\0-npcs\0-nprs\0" \
-     "-psl\0-sc\0-sai\0-saf\0-saw\0-nsob\0-nss\0-ts8\0"
+     "-psl\0-sc\0-sai\0-saf\0-saw\0-nsob\0-nss\0-ts8\0-sas\0"
 
 #define LINUX_SETTINGS_STRING \
      "-nbad\0-bap\0-nbc\0-bbo\0-hnl\0-br\0-brs\0-c33\0-cd33\0" \
      "-ncdb\0-ce\0-ci4\0-cli0\0-d0\0-di1\0-nfc1\0-i8\0-ip0\0-l80\0-lp\0" \
      "-npcs\0-nprs\0-npsl\0-sai\0-saf\0-saw\0-ncs\0-nsc\0-sob\0-nfca\0-cp33\0-ss\0" \
-     "-ts8\0-il1\0-nbs\0"
+     "-ts8\0-il1\0-nbs\0-sas\0"
 
 const char *settings_strings[6] = {
 	KR_SETTINGS_STRING,
@@ -209,6 +209,7 @@ static int exp_ppi  = 0;  /*!< force preprocessor indent at width... */
 static int exp_sai  = 0;
 static int exp_saf  = 0;
 static int exp_saw  = 0;
+static int exp_sas  = 0;
 static int exp_sbi  = 0;
 static int exp_sc   = 0;
 static int exp_sob  = 0;
@@ -289,6 +290,7 @@ const pro_ty pro[] =
     {"saw",     PRO_BOOL,                            true,       ON, &settings.space_after_while,                &exp_saw},
     {"sai",     PRO_BOOL,                            true,       ON, &settings.space_after_if,                   &exp_sai},
     {"saf",     PRO_BOOL,                            true,       ON, &settings.space_after_for,                  &exp_saf},
+    {"sas",     PRO_BOOL,                            true,       ON, &settings.space_after_switch,               &exp_sas},
     {"psl",     PRO_BOOL,                            true,       ON, &settings.procnames_start_line,             &exp_psl},
     {"prs",     PRO_BOOL,                           false,       ON, &settings.parentheses_space,                &exp_prs},
 #ifdef PRESERVE_MTIME
@@ -305,6 +307,7 @@ const pro_ty pro[] =
     {"nsaw",    PRO_BOOL,                            true,      OFF, &settings.space_after_while,                &exp_saw},
     {"nsai",    PRO_BOOL,                            true,      OFF, &settings.space_after_if,                   &exp_sai},
     {"nsaf",    PRO_BOOL,                            true,      OFF, &settings.space_after_for,                  &exp_saf},
+    {"nsas",    PRO_BOOL,                            true,      OFF, &settings.space_after_switch,               &exp_sas},
     {"npsl",    PRO_BOOL,                            true,      OFF, &settings.procnames_start_line,             &exp_psl},
     {"nprs",    PRO_BOOL,                           false,      OFF, &settings.parentheses_space,                &exp_prs},
     {"npro",    PRO_IGN,                                0, ONOFF_NA, 0,                                          &exp_pro},
@@ -416,6 +419,7 @@ const pro_ty pro[] =
     {"saw",     PRO_BOOL,                            true,       ON, &settings.space_after_while,                &exp_saw},
     {"sai",     PRO_BOOL,                            true,       ON, &settings.space_after_if,                   &exp_sai},
     {"saf",     PRO_BOOL,                            true,       ON, &settings.space_after_for,                  &exp_saf},
+    {"sas",     PRO_BOOL,                            true,       ON, &settings.space_after_switch,               &exp_sas},
     {"psl",     PRO_BOOL,                            true,       ON, &settings.procnames_start_line,             &exp_psl},
     {"prs",     PRO_BOOL,                           false,       ON, &settings.parentheses_space,                &exp_prs},
 #ifdef PRESERVE_MTIME
@@ -433,6 +437,7 @@ const pro_ty pro[] =
     {"nsaw",    PRO_BOOL,                            true,      OFF, &settings.space_after_while,                &exp_saw},
     {"nsai",    PRO_BOOL,                            true,      OFF, &settings.space_after_if,                   &exp_sai},
     {"nsaf",    PRO_BOOL,                            true,      OFF, &settings.space_after_for,                  &exp_saf},
+    {"nsas",    PRO_BOOL,                            true,      OFF, &settings.space_after_switch,               &exp_sas},
     {"npsl",    PRO_BOOL,                            true,      OFF, &settings.procnames_start_line,             &exp_psl},
     {"nprs",    PRO_BOOL,                           false,      OFF, &settings.parentheses_space,                &exp_prs},
     {"npro",    PRO_IGN,                                0, ONOFF_NA, 0,                                          &exp_pro},
@@ -546,6 +551,7 @@ const long_option_conversion_ty option_conversions[] =
     {"standard-output",                             "st"},
     {"space-special-semicolon",                     "ss"},
     {"space-after-while",                           "saw"},
+    {"space-after-switch",                          "sas"},
     {"space-after-procedure-calls",                 "pcs"},
     {"space-after-parentheses",                     "prs"},
     {"space-after-if",                              "sai"},
@@ -569,6 +575,7 @@ const long_option_conversion_ty option_conversions[] =
     {"no-space-after-if",                           "nsai"},
     {"no-space-after-function-call-names",          "npcs"},
     {"no-space-after-for",                          "nsaf"},
+    {"no-space-after-switch",                       "nsas"},
     {"no-space-after-cast",                         "ncs"},
     {"no-space-after-casts",                        "ncs"},
     {"no-parameter-indentation",                    "nip"},
