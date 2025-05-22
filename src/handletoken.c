@@ -1144,16 +1144,47 @@ static void handle_token_lbrace(
                 {
                     dump_line (true, &paren_target, pbreak_line);
                 }
-                else
+                else if (settings.space_after_func_def)
                 {
                     *(e_code++) = ' ';
                 }
                 
                 parser_state_tos->want_blank = false;
             }
+            else if (parser_state_tos->last_token == sp_else)
+            {
+                parser_state_tos->want_blank = settings.space_after_else;
+            }
+            else if (parser_state_tos->last_token == sp_nparen)
+            {
+                parser_state_tos->want_blank = settings.space_after_do;
+            }
+            else if (parser_state_tos->last_token == rparen &&
+                     !parser_state_tos->in_decl &&
+                     parser_state_tos->block_init == 0)
+            {
+                switch (parser_state_tos->p_stack[parser_state_tos->tos])
+                {
+                case ifstmt:
+                    parser_state_tos->want_blank = settings.space_before_if_block;
+                    break;
+                case swstmt:
+                    parser_state_tos->want_blank = settings.space_before_switch_block;
+                    break;
+                case forstmt:
+                    parser_state_tos->want_blank = settings.space_before_for_block;
+                    break;
+                case whilestmt:
+                    parser_state_tos->want_blank = settings.space_before_while_block;
+                    break;
+                default:
+                    parser_state_tos->want_blank = settings.space_before_brace;
+                    break;
+                }
+            }
             else
             {
-                parser_state_tos->want_blank = true;
+                parser_state_tos->want_blank = settings.space_before_brace;
             }
         }
     }
@@ -1434,6 +1465,15 @@ static void handle_token_sp_paren(
     /* remember the type of header for later use by parser */
     *hd_type =
             (*token == 'i' ? ifstmt : (*token == 'w' ? whilestmt : forstmt));
+
+    if (!settings.space_before_while &&
+        *token == 'w' &&
+        settings.cuddle_do_while &&
+        e_code != s_code &&
+        e_code[-1] == '}')
+    {
+        parser_state_tos->want_blank = false;
+    }
 }
 
 /**
@@ -1457,6 +1497,10 @@ static void handle_token_nparen(
             }
             
             dump_line (true, &paren_target, pbreak_line);       /* make sure this starts a line */
+            parser_state_tos->want_blank = false;
+        }
+        else if (!settings.space_before_else)
+        {
             parser_state_tos->want_blank = false;
         }
         
